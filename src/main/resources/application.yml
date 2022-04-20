@@ -1,0 +1,47 @@
+server:
+  port: 8080
+# Spring\u914D\u7F6E
+spring:
+
+  # \u914D\u7F6E\u6570\u636E\u6E90
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    # \u8FDE\u63A5\u6C60\u914D\u7F6E
+    druid:
+      # \u914D\u7F6E\u6570\u636E\u5E93\u8FDE\u63A5\u4FE1\u606F
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://127.0.0.1:3306/mall-pms?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&useUnicode=true&allowPublicKeyRetrieval=true
+      username: root
+      password: root
+      # \u521D\u59CB\u5316\u5927\u5C0F\uFF0C\u6700\u5C0F\uFF0C\u6700\u5927
+      initial-size: 5
+      min-idle: 5
+      max-active: 20
+      # \u914D\u7F6E\u95F4\u9694\u591A\u4E45\u624D\u8FDB\u884C\u4E00\u6B21\u68C0\u6D4B\uFF0C\u68C0\u6D4B\u9700\u8981\u5173\u95ED\u7684\u7A7A\u95F2\u8FDE\u63A5\uFF0C\u5355\u4F4D\u6BEB\u79D2
+      time-between-eviction-runs-millis: 60000
+      # \u914D\u7F6E\u4E00\u4E2A\u8FDE\u63A5\u5728\u6C60\u4E2D\u6700\u5C0F\u751F\u5B58\u65F6\u95F4
+      min-evictable-idle-time-millis: 300000
+      validation-query: SELECT 1 FROM sys_user
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+
+  # \u914D\u7F6E\u65E5\u671F\u683C\u5F0F
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+
+# MP\u914D\u7F6E
+mybatis-plus:
+  global-config:
+    db-config:
+      id-type: auto #\u8BBE\u7F6E\u4E3B\u952E\u81EA\u589E
+      logic-delete-field: flag  # \u5168\u5C40\u903B\u8F91\u5220\u9664\u7684\u5B9E\u4F53\u5B57\u6BB5\u540D(since 3.3.0,\u914D\u7F6E\u540E\u53EF\u4EE5\u5FFD\u7565\u4E0D\u914D\u7F6E\u6B65\u9AA42)
+      logic-delete-value: 1 # \u903B\u8F91\u5DF2\u5220\u9664\u503C(\u9ED8\u8BA4\u4E3A 1)
+      logic-not-delete-value: 0 # \u903B\u8F91\u672A\u5220\u9664\u503C(\u9ED8\u8BA4\u4E3A 0)
+
+#\u8BBE\u7F6E\u65E5\u5FD7\u7EA7\u522B
+logging:
+  level:
+    com.xiaofei.product: info
+
+
