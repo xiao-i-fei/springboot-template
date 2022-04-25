@@ -1,6 +1,7 @@
 package com.xiaofei.template.config;
 
 import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.context.annotation.Configuration;
 
 /**
  * User: 李飞
@@ -10,5 +11,6 @@ import org.mybatis.spring.annotation.MapperScan;
  * @author 李飞
  */
 @MapperScan("com.xiaofei.template.mapper")
+@Configuration
 public class MyBatisConfig {
 }
